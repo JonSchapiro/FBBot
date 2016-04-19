@@ -21,6 +21,7 @@ Brain.prototype.getDictionary = function(){
     "hey":categories[0],
     "yo":categories[0],
     "card":categories[1],
+    "meltcard":categories[1],
     "nutrition":categories[2],
     "information":categories[3],
     "info":categories[3]
@@ -72,6 +73,7 @@ Brain.prototype.nutrition = function(){
 
 Brain.prototype.information = function(){
   var msg = "If you want more information, make sure to visit our FAQ section."
+  return msg;
 }
 
 Brain.prototype.constructMessage = function(messages){
