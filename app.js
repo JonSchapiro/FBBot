@@ -3,6 +3,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request')
+var Brain = require('./brain')
+var brain = new Brain();
 
 app.use(bodyParser.json())
 
@@ -50,7 +52,12 @@ app.post('/webhook/', function (req, res) {
     if (event.message && event.message.text) {
       text = event.message.text;
       console.log(text);
-      sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+      brain.match(text,function(messagesToSend){
+        for (var j = 0; j < messagesToSend.length; j++){
+          sendTextMessage(sender, messagesToSend[j]());
+        }
+      })
+      
     }
   }
   res.sendStatus(200);
