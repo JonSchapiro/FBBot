@@ -14,13 +14,16 @@ var Brain = function(){
 };
 
 Brain.prototype.getDictionary = function(){
-  var categories=["greeting","loyalty","nutrition"]
+  var categories=["greeting","loyalty","nutrition","info"]
+  
   return {
     "hi":categories[0],
     "hey":categories[0],
     "yo":categories[0],
     "card":categories[1],
-    "nutrition":categories[2]
+    "nutrition":categories[2],
+    "information":categories[3],
+    "info":categories[3]
   }
 }
 
@@ -29,6 +32,7 @@ Brain.prototype.getMap = function() {
     "greeting":this.greet,
     "loyalty":this.loyalty,
     "nutrition":this.nutrition
+    "info":this.information
   }
 }
 
@@ -52,7 +56,7 @@ Brain.prototype.match = function(message,sendMessageCallback){
 };
 
 Brain.prototype.greet = function(){
-  var msg = "Hey there!";
+  var msg = "Hey there! :)";
   return msg;
 };
 
@@ -66,9 +70,13 @@ Brain.prototype.nutrition = function(){
   return msg;
 }
 
+Brain.prototype.information = function(){
+  var msg = "If you want more information, make sure to visit our FAQ section."
+}
+
 Brain.prototype.constructMessage = function(messages){
-  //remove duplicates
   var finalMessage = [];
+
   for (var i = 0; i < messages.length; i++){
     finalMessage.push(this.map[messages[i]]);
   }
