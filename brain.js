@@ -14,18 +14,21 @@ var Brain = function(){
 };
 
 Brain.prototype.getDictionary = function(){
-  var categories=["greeting","loyalty"]
+  var categories=["greeting","loyalty","nutrition"]
   return {
     "hi":categories[0],
+    "hey":categories[0],
     "yo":categories[0],
-    "card":categories[1]
+    "card":categories[1],
+    "nutrition":categories[2]
   }
 }
 
 Brain.prototype.getMap = function() {
   return {
     "greeting":this.greet,
-    "loyalty":this.loyalty
+    "loyalty":this.loyalty,
+    "nutrition":this.nutrition
   }
 }
 
@@ -54,7 +57,12 @@ Brain.prototype.greet = function(){
 };
 
 Brain.prototype.loyalty = function(){
-  var msg = "Melt Card Info Ya!";
+  var msg = "You should definitely get a melt card. You'll get some free stuff!";
+  return msg;
+}
+
+Brain.prototype.nutrition = function(){
+  var msg = "Nutrition is what keeps us alive!";
   return msg;
 }
 
