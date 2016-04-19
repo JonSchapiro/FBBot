@@ -31,7 +31,7 @@ Brain.prototype.getMap = function() {
   return {
     "greeting":this.greet,
     "loyalty":this.loyalty,
-    "nutrition":this.nutrition
+    "nutrition":this.nutrition,
     "info":this.information
   }
 }
