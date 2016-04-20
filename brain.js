@@ -1,3 +1,4 @@
+var Dictionary = require('./dictionary');
 var Brain = function(){
   
   var _dictionary = this.getDictionary();
@@ -15,47 +16,8 @@ var Brain = function(){
 };
 
 Brain.prototype.getDictionary = function(){
-  var categories=["greeting","loyalty","nutrition","info","locations","realEstate","tellus","opening","employment"]
   
-  return {
-    "hi":categories[categories.indexOf("greeting")],
-    "hello":categories[categories.indexOf("greeting")],
-    "hey":categories[categories.indexOf("greeting")],
-    "yo":categories[categories.indexOf("greeting")],
-    "loyalty":categories[categories.indexOf("loyalty")],
-    "loyal":categories[categories.indexOf("loyalty")],
-    "card":categories[categories.indexOf("loyalty")],
-    "meltcard":categories[categories.indexOf("loyalty")],
-    "nutrition":categories[categories.indexOf("nutrition")],
-    "information":categories[categories.indexOf("info")],
-    "info":categories[categories.indexOf("info")],
-    "general":categories[categories.indexOf("info")],
-    "locatio":categories[categories.indexOf('locations')],
-    "locat":categories[categories.indexOf('locations')],
-    "locate":categories[categories.indexOf('locations')],
-    "location":categories[categories.indexOf('locations')],
-    "locations":categories[categories.indexOf('locations')],
-    "located":categories[categories.indexOf('locations')],
-    "openings":categories[categories.indexOf('locations')],
-    "opening":categories[categories.indexOf('locations')],
-    "where":categories[categories.indexOf('locations')],
-    "estate":categories[categories.indexOf('realEstate')],
-    "franchising":categories[categories.indexOf('realEstate')],
-    "franchise":categories[categories.indexOf('realEstate')],
-    "franchised":categories[categories.indexOf('realEstate')],
-    "property":categories[categories.indexOf('realEstate')],
-    "bad":categories[categories.indexOf('tellus')],
-    "negative":categories[categories.indexOf('tellus')],
-    "experience":categories[categories.indexOf('tellus')],
-    "rude":categories[categories.indexOf('tellus')],
-    "worst":categories[categories.indexOf('tellus')],
-    "dirty":categories[categories.indexOf('tellus')],
-    "terrible":categories[categories.indexOf('tellus')],
-    "sucks":categories[categories.indexOf('tellus')],
-    "opening":categories[categories.indexOf('opening')],
-    "job":categories[categories.indexOf('employment')],
-    "opportunity":categories[categories.indexOf('employment')]
-  }
+  return Dictionary;
 };
 
 Brain.prototype.getMap = function() {
@@ -77,7 +39,7 @@ Brain.prototype.match = function(message,sendMessageCallback){
   var messagesToSend = [];
 
   if (message.length > 0){
-    var words = message.toLowerCase().split(' ');
+    var words = message.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').toLowerCase().split(' ');
 
     for (var i = 0; i < words.length; i++){
       var action = this.dictionary[words[i]];
@@ -130,7 +92,7 @@ Brain.prototype.tellus = function(){
 };
 
 Brain.prototype.opening = function(){
-  var msg = "Hi there! For more information aobut store openings, check out: https://themelt.com/locations/all";
+  var msg = "Hi there! For more information about store openings, check out: https://themelt.com/locations/all";
   return msg;
 };
 

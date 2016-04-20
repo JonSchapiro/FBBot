@@ -1,4 +1,3 @@
-
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -64,5 +63,5 @@ app.post('/webhook/', function (req, res) {
 });
 
 app.listen(process.env.PORT || 8080, function () {
-  console.log('Example app listening on port ', process.env.PORT || 8080);
+  console.log('Cruisin on port ', process.env.PORT || 8080);
 });
