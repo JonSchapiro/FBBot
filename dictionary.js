@@ -1,5 +1,5 @@
 
-var categories = ["greeting","loyalty","nutrition","info","locations","realEstate","tellus","opening","employment"];
+var categories = ["greeting","loyalty","nutrition","info","locations","realEstate","tellus","opening","employment","catering"];
 
 module.exports = {
     "hi":categories[categories.indexOf("greeting")],
@@ -38,5 +38,8 @@ module.exports = {
     "sucks":categories[categories.indexOf('tellus')],
     "opening":categories[categories.indexOf('opening')],
     "job":categories[categories.indexOf('employment')],
-    "opportunity":categories[categories.indexOf('employment')]
+    "opportunity":categories[categories.indexOf('employment')],
+    "cater":categories[categories.indexOf('catering')],
+    "catered":categories[categories.indexOf('catering')],
+    "catering":categories[categories.indexOf('catering')]
   }

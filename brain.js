@@ -1,4 +1,5 @@
 var Dictionary = require('./dictionary');
+//consider refactoring to be singleton
 var Brain = function(){
   
   var _dictionary = this.getDictionary();
@@ -31,6 +32,7 @@ Brain.prototype.getMap = function() {
     "tellus":this.tellus,
     "opening":this.opening,
     "employment":this.employment,
+    "catering":this.catering,
     "default":this.default
   }
 };
@@ -98,6 +100,11 @@ Brain.prototype.opening = function(){
 
 Brain.prototype.employment = function(){
   var msg = "Thanks for inquiring about employment at The Melt! Please refer to the job section of our website for more information. https://themelt.com/jobs";
+  return msg;
+};
+
+Brain.prototype.catering = function(){
+  var msg = "Thanks for inquiring about catering at The Melt! Please refer to the catering section of our website for more information. https://themeltcaters.com/";
   return msg;
 };
 
